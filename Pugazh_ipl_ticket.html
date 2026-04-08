@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPL Ticket Booking - MI vs CSK</title>
+
+<style>
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #004ba0, #fdb913);
+    color: white;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    background: rgba(0,0,0,0.6);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.hero h2 {
+    font-size: 38px;
+}
+
+/* Team Colors */
+.mi {
+    color: #00aaff;
+    text-shadow: 0 0 10px #00aaff;
+}
+
+.csk {
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+}
+
+/* Player Section */
+.players {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.player-card {
+    text-align: center;
+    margin: 15px;
+    transition: 0.4s;
+}
+
+.player-card img {
+    width: 280px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+
+.player-card:hover {
+    transform: scale(1.05);
+}
+
+.player-name {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Form Section */
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.form-box {
+    background: rgba(0,0,0,0.75);
+    padding: 40px;
+    border-radius: 15px;
+    width: 350px;
+    backdrop-filter: blur(10px);
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fdb913;
+}
+
+/* Inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #222;
+    color: white;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+/* Floating labels */
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group select:focus + label,
+.input-group select:valid + label {
+    top: -10px;
+    font-size: 12px;
+    color: #fdb913;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(45deg, #004ba0, #fdb913);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgba(0,0,0,0.6);
+}
+
+/* Responsive */
+@media(max-width: 700px) {
+    .players {
+        flex-direction: column;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    IPL 2026 Ticket Booking
+</header>
+
+<section class="hero">
+    <h2>
+        <span class="mi">Mumbai Indians</span> 🆚 
+        <span class="csk">Chennai Super Kings</span>
+    </h2>
+</section>
+
+<!-- Players Section -->
+<section class="players">
+
+    <div class="player-card">
+        <img src="https://circleofcricket.com/post_image/post_image_cfe9f6d.png">
+        <div class="player-name">Rohit Sharma</div>
+    </div>
+
+    <div class="player-card">
+        <img src="https://i.pinimg.com/originals/fc/bb/32/fcbb3212a03e9b6965340b311e53913f.jpg">
+        <div class="player-name">MS Dhoni</div>
+    </div>
+
+</section>
+
+<!-- Form -->
+<div class="container">
+    <div class="form-box">
+
+        <h2>Register Now</h2>
+
+        <form onsubmit="return validateForm()">
+
+            <div class="input-group">
+                <input type="text" required>
+                <label>Full Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="tel" id="phone" required>
+                <label>Phone Number</label>
+            </div>
+
+            <div class="input-group">
+                <select required>
+                    <option value=""></option>
+                    <option>VIP Stand</option>
+                    <option>Premium Stand</option>
+                    <option>General Stand</option>
+                </select>
+                <label>Select Stand</label>
+            </div>
+
+            <div class="input-group">
+                <input type="number" min="1" max="10" required>
+                <label>Tickets</label>
+            </div>
+
+            <button type="submit">Book Tickets</button>
+
+        </form>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 IPL Booking | MI vs CSK
+</footer>
+
+<script>
+function validateForm() {
+    let phone = document.getElementById("phone").value;
+
+    if(phone.length < 10) {
+        alert("Enter valid phone number");
+        return false;
+    }
+
+    alert("Ticket booked! 🎉");
+    return true;
+}
+</script>
+
+</body>
+</html>
